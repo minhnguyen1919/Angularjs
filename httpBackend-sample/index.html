@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    h3 {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-mocks.js"></script>
+  <script src="main.js"></script>
+</head>
+<body ng-controller="mainController">
+  <h3>Example of $httpBackend error when POSTing. Example forked from this fiddle: http://jsfiddle.net/vojtajina/DQHdk/</h3>
+  <p>Note: the original fiddle also produces the result of this fiddle when one tries to POST</p>
+
+  <br />
+  <button ng-click="addPhone()">Add a phone via POST</button><br />
+  Watch the console for errors.
+  <button ng-click="deletePhone()">delete a phone via POST</button>
+
+  <ul>
+    <li ng-repeat="phone in phones">{{phone.name}}</li>
+  </ul>
+</body>
+</html>

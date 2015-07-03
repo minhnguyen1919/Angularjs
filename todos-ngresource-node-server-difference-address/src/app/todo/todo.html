@@ -1,0 +1,51 @@
+<div class="page-wrap">
+  <div class="container">
+    <header>
+      <h1 class="todo-title">todos</h1>
+    </header>
+    <section class="todo-wrap">
+      <div class="todos">
+
+        <div class="add-todo">
+          <input id="toggle-all" class="toggle-all" type="checkbox" ng-init="toggle.isChecked = false" ng-model="toggle.isChecked" ng-change="toggleAllTodoChanged()">
+          <form action="" ng-submit="addTodo()">
+            <input class="input-todo" ng-model="todo" type="text" placeholder="What needs to be done?" focus-me="true">
+          </form>
+        </div><!-- End .add-todo -->
+
+        <div ng-class="{message:message != ''}">{{message}}</div>
+
+        <div class="todo-list-wrap">
+          <ul class="todo-list" id="todo-list">
+            <li class="todo-item " ng-class="{completed: todo.isCompleted == true, editing: todo == editedTodo}" ng-repeat="todo in todos | todoType:filterTodoType track by $index">
+              <div id="todo-view" class="todo-view">
+                <input class="checkbox" type="checkbox" name="todo" ng-model="todo.isCompleted" ng-change="changeStateTodo()" ng-checked="todo.isCompleted">
+                <label ng-dblclick="editTodo(todo)">{{todo.content}}</label>
+                <a class="delete" ng-click="deleteTodo($index)">×</a>
+              </div>
+              <form action="" ng-submit="saveEditedTodo(todo, 'submit')">
+                <input id="todo-edit" class="todo-edit" type="text" focus-me="todo == editedTodo" ng-model="todo.content" ng-blur="saveEditedTodo(todo, 'blur')" ng-escape="closeEditTodo($index)">
+              </form>
+            </li>
+          </ul><!-- End .todo-list -->
+        </div><!-- End .todo-list-wrap -->
+
+        <div class="todo-group">
+          <span id="item-left" class="item-left">{{totalActiveTodo}} item{{totalActiveTodo > 1 ? 's' : ''}} left</span>
+          <ul class="list-action">
+            <li><a class="button" ng-class="{'btn-active':filterTodoType=='all'}" ng-click="filterTodoType = 'all'">All</a></li>
+            <li><a class="button" ng-class="{'btn-active':filterTodoType=='active'}" ng-click="filterTodoType = 'active'">Active</a></li>
+            <li><a class="button"  ng-class="{'btn-active':filterTodoType=='completed'}" ng-click="filterTodoType = 'completed'">Completed</a></li>
+          </ul>
+          <a id="clear-button" class="clear-button" ng-show="isCompletedExist" ng-click="clearCompletedTodo()">Clear completed</a>
+        </div><!-- End .todo-group -->
+
+      </div><!-- End .todos -->
+    </section><!-- End .todo-wrap -->
+    <footer>
+      <p>Double-click to edit a todo</p>
+      <p>Written by <a href="#">Addy Osmani</a></p>
+      <p>Part of <a href="#">TodoMVC</a></p>
+    </footer>
+  </div><!-- End .container -->
+</div><!-- End .page-wrap -->

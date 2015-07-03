@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular.min.js"></script>
+  <script type="text/javascript" src="http://code.angularjs.org/1.0.1/angular-mocks-1.0.1.js"></script>
+  <script type="text/javascript" src="http://code.angularjs.org/1.0.1/angular-resource-1.0.1.min.js"></script>
+  <script src="server.js"></script>
+  <script src="main.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+  <div>
+    <ul>
+      <li ng-repeat="todo in todos">
+        <label for="">{{todo.text}}</label>
+        <a ng-click="deleteTodo(todo.id)">Del</a>
+      </li>
+    </ul>
+    <input type="button" value="Update todo" ng-click="updateTodo({id: 112, text:'lunch'})">
+    <input type="button" value="Add todo" ng-click="addTodo({id: 114, text:'dinner'})">
+
+  </div>
+</body>
+</html>

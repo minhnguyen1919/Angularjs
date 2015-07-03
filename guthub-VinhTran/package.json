@@ -1,0 +1,18 @@
+{
+  "name": "user-manager",
+  "version": "1.0.0",
+  "description": "Practice user manager of Minh Nguyen",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "express": "3.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

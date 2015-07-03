@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>To Do List</h1>
+
+    <!-- Form add new todo -->
+    <form class="" name="form-todo">
+      <div class="row col-sm-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="checkbox" class="chk-all" ng-click="checkAll(event=$event)" ng-model="finishedAll"/>
+          </span>
+          <input class="form-control txt-newTodo" type="text" placeholder="Enter new task name" ng-keyup="add(event=$event)" ng-model="newTodo.name" required />
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </form>
+
+    <div class="filter-group">
+      <button class="btn btn-default" ng-click="filter('')">All</button>
+      <button class="btn btn-default" ng-click="filter(false)">Active</button>
+      <button class="btn btn-default" ng-click="filter(true)">Finished</button>
+      <button class="btn btn-danger" ng-click="clear()">Clear</button>
+      <label class="label-todo pull-right label-notify">{{countFinishedTodo() > 1? countFinishedTodo() + ' items left' : countFinishedTodo() + ' item left'}}</label>
+    </div>
+
+    <!-- List To do -->
+    <ul class="todo-list">
+      <li animate ng-repeat="todo in filteredTodos |filter: { finished: filterValue }" class="todo-item" id="todo-{{todo.id}}">
+        <input type="checkbox" class="chk-todo" ng-checked="todo.finished" ng-click="edit(todo, event=$event, 'finished')" ng-model="todo.finished" value="{{todo.finished}}" />
+
+        <label ng-class="{'todo-finished': todo.finished}" class="label-todo" ng-dblClick="changeMode(todo)" ng-show="!todo.isEditMode">{{todo.name}}</label >
+
+        <input type="text" class="txt-todo" value="{{todo.name}}" ng-show="todo.isEditMode" ng-keyup="edit(todo, event=$event, 'name')" ng-model="todo.name" ng-blur="" ngcus-focus="(todo.isEditMode == true)"./>
+
+        <button class="btn btn-sm btn-danger btn-remove" ng-click="delete(todo, event=$event)">
+          <i class="glyphicon glyphicon-remove"></i>
+        </button>
+      </li>
+    </ul>
+
+    <pagination
+    ng-model="currentPage"
+    total-items="todos.length"
+    max-size="maxSize"
+    boundary-links="true"
+    items-per-page="numPerPage">
+    </pagination>
+</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var todoList = [
+        { id: 111, text: 'playing football'},
+        { id: 112, text: 'go swimming'},
+        { id: 113, text: 'go to cinema'}
+      ]
+
+      function findIndexById(arr, id) {
+        var index;
+        arr.forEach(function(item, i) {
+          if (item.id === id) {
+            index = i;
+          }
+        })
+
+        return index;
+      }
+  </script>
+</body>
+</html>

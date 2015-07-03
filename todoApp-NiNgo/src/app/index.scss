@@ -1,0 +1,120 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+.table {
+  display: table;
+}
+
+.header-row {
+  background-color: #d9edf7;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  padding: 5px;
+  border: 1px solid #f0f0f0;
+}
+
+.panel {
+  margin-top: 50px;
+}
+
+ul.unstyled {
+  list-style: none;
+  padding-left: 0!important;
+}
+
+.todo-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+
+  .todo-item {
+    transition: opacity ease 0.8s, max-height ease 0.8s, padding ease 0.8s;
+    -moz-transition: opacity ease 0.8s, max-height ease 0.8s, padding ease 0.8s;
+    -webkit-transition: opacity ease 0.8s, max-height ease 0.8s, padding ease 0.8s;
+    -o-transition: opacity ease 0.8s, max-height ease 0.8s, padding ease 0.8s;
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    position:relative;
+
+    &.show {
+      padding: 15px 0px;
+      opacity: 1;
+      max-height: 100px;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgb(221, 221, 221);
+    }
+
+    .btn-remove {
+      border-radius:30px;
+      width:30px;
+      height:30px;
+      line-height:20px;
+      position:absolute;
+      right: 0;
+      top: 10px;
+    }
+
+    .label-todo {
+      text-transform: capitalize;
+    }
+
+    .label-todo,
+    .txt-todo {
+      width: 90%;
+    }
+
+    .label-todo,
+    .chk-todo,
+    .txt-todo,
+    .btn-remove {
+      display: inline;
+      vertical-align: middle;
+    }
+  }
+}
+.todo-finished {
+  text-decoration: line-through;
+  color: #c2c2c2;
+}
+
+.filter-group {
+  border-bottom: 2px solid rgb(221, 221, 221);
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.label-notify {
+  line-height: 60px;
+}
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector
+
+
+/* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
+// injector
+// endinjector
