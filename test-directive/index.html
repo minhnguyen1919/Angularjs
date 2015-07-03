@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test directive</title>
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    example-progress {
+        display: block;
+        width: 100%;
+        position: relative;
+        border: 1px solid black;
+        height: 18px;
+    }
+     
+    example-progress .progressBar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: green;
+    }
+     
+    example-progress .progressValue {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+    }
+  </style>
+</head>
+<body ng-app="example" ng-init="textToConvert = 'This text will be converted to leet speak!'; progressValue = 20; progressMax = 100" >
+  <div>
+    <div example-bind-leet="textToConvert" class="one two">
+      
+    </div>
+    <input type="text" ng-model="textToConvert" value="asdas">
+  </div>
+
+  <example-progress value="progressValue" max= "progressMax"></example-progress>
+
+  <input type="text" ng-model="progressValue">
+  <input type="text" ng-model="progressMax">
+</body>
+</html>
